@@ -38,6 +38,7 @@
         </section>
         <section class="form-panel" data-panel="invoice">
           <div class="panel-heading"><span>02</span><div><h2>Detail Invoice</h2><p>Nomor, tanggal, dan pembayaran</p></div></div>
+          <label>Headline Dokumen<input data-bind="invoiceTitle" value="INVOICE" placeholder="Contoh: INVOICE atau FAKTUR"></label>
           <label>Nomor Invoice<input class="mono" data-bind="invoiceNo" value="INV-260619-001"></label>
           <div class="fields-2"><label>Tanggal Invoice<input data-bind="invoiceDate" type="date" value="2026-06-19"></label><label>Jatuh Tempo<input data-bind="dueDate" type="date" value="2026-07-03"></label></div>
           <div class="fields-2"><label>Metode Pembayaran<select data-bind="paymentMethod"><option>Transfer Bank</option><option>Tunai</option><option>QRIS</option></select></label><label>Mata Uang<select data-bind="currency"><option>IDR</option><option>USD</option></select></label></div>
@@ -47,10 +48,11 @@
         <section class="form-panel" data-panel="client">
           <div class="panel-heading"><span>03</span><div><h2>Informasi Klien</h2><p>Penagihan dan pengiriman</p></div></div>
           <label>Judul Bagian Penagihan<input data-bind="billingLabel" value="DITAGIHKAN KEPADA" placeholder="Contoh: KEPADA YTH."></label>
-          <label>Nama Perusahaan Klien<input data-bind="client" value="PT MAJU JAYA AGRINDO"></label>
+          <label>Nama PT / Klien Penagihan<input data-bind="client" value="PT MAJU JAYA AGRINDO"></label>
           <label>Alamat Penagihan<textarea data-bind="billingAddress">Jl. Tani Makmur No. 10, Sidoarjo, Jawa Timur 61234, Indonesia</textarea></label>
           <label>Email<input data-bind="clientEmail" value="purchasing@majujaya.com"></label><label>Telepon<input data-bind="clientPhone" value="+62 31 1234 5678"></label>
           <label class="check-row"><input id="sameAddress" type="checkbox" checked> Alamat pengiriman sama dengan penagihan</label>
+          <label>Nama PT / Klien Pengiriman<input data-bind="shippingClient" value="PT MAJU JAYA AGRINDO"></label>
           <label>Alamat Pengiriman<textarea data-bind="shippingAddress">Jl. Tani Makmur No. 10, Sidoarjo, Jawa Timur 61234, Indonesia</textarea></label>
           <label>Lokasi / Gudang<input data-bind="warehouse" value="Gudang Pusat"></label>
         </section>
