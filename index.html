@@ -33,6 +33,7 @@
           <div class="fields-2"><label>Telepon<input data-bind="phone" value="+62 812 3456 7890"></label><label>Email<input data-bind="email" value="info@pimakimagro.com"></label></div>
           <label>Website<input data-bind="website" value="www.pimakimagro.com"></label>
           <h3>Informasi Bank</h3>
+          <label>Judul Informasi Pembayaran<input data-bind="paymentTitle" value="INFORMASI PEMBAYARAN" placeholder="Contoh: DETAIL PEMBAYARAN"></label>
           <div class="fields-2"><label>Bank<input data-bind="bank" value="BCA"></label><label>No. Rekening<input data-bind="account" value="1234 5678 901"></label></div>
           <label>Atas Nama<input data-bind="accountName" value="PT PIMA KIMAGRO SEJAHTERA"></label>
         </section>
@@ -50,10 +51,11 @@
           <label>Judul Bagian Penagihan<input data-bind="billingLabel" value="DITAGIHKAN KEPADA" placeholder="Contoh: KEPADA YTH."></label>
           <label>Nama PT / Klien Penagihan<input data-bind="client" value="PT MAJU JAYA AGRINDO"></label>
           <label>Alamat Penagihan<textarea data-bind="billingAddress">Jl. Tani Makmur No. 10, Sidoarjo, Jawa Timur 61234, Indonesia</textarea></label>
-          <label>Email<input data-bind="clientEmail" value="purchasing@majujaya.com"></label><label>Telepon<input data-bind="clientPhone" value="+62 31 1234 5678"></label>
+          <label>Email Penagihan<input data-bind="clientEmail" value="purchasing@majujaya.com"></label><label>Telepon Penagihan<input data-bind="clientPhone" value="+62 31 1234 5678"></label>
           <label class="check-row"><input id="sameAddress" type="checkbox" checked> Alamat pengiriman sama dengan penagihan</label>
           <label>Nama PT / Klien Pengiriman<input data-bind="shippingClient" value="PT MAJU JAYA AGRINDO"></label>
           <label>Alamat Pengiriman<textarea data-bind="shippingAddress">Jl. Tani Makmur No. 10, Sidoarjo, Jawa Timur 61234, Indonesia</textarea></label>
+          <div class="fields-2"><label>Email Pengiriman<input data-bind="shippingEmail" value="gudang@majujaya.com"></label><label>Telepon Pengiriman<input data-bind="shippingPhone" value="+62 31 1234 5678"></label></div>
           <label>Lokasi / Gudang<input data-bind="warehouse" value="Gudang Pusat"></label>
         </section>
         <section class="form-panel" data-panel="products">

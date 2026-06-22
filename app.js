@@ -2,6 +2,9 @@ const defaults={company:'PT PIMA KIMAGRO SEJAHTERA',tagline:'DISTRIBUTOR CHEMICA
 let state={...defaults,tax:true,taxRate:11,logo:'',logoSize:145,stamp:'',stampSize:86,signature:'',signatureSize:105,products:[{name:'Pupuk NPK 16-16-16',detail:'50 KG/SAK',unit:'SAK',qty:50,price:280000},{name:'Asam Humat 90%',detail:'25 KG/KARUNG',unit:'KARUNG',qty:20,price:325000},{name:'Pupuk KCL 60%',detail:'50 KG/SAK',unit:'SAK',qty:30,price:315000},{name:'Calcium Nitrate 15.5%',detail:'25 KG/SAK',unit:'SAK',qty:20,price:375000},{name:'Perekat / Sticker 10 L',detail:'',unit:'JERIGEN',qty:10,price:185000}]};
 state.invoiceTitle='INVOICE';
 state.shippingClient=state.client;
+state.shippingEmail='gudang@majujaya.com';
+state.shippingPhone=state.clientPhone;
+state.paymentTitle='INFORMASI PEMBAYARAN';
 const rupiah=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
 const dateID=s=>new Date(s+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});
 function terbilang(n){const a=['','Satu','Dua','Tiga','Empat','Lima','Enam','Tujuh','Delapan','Sembilan','Sepuluh','Sebelas'];n=Math.floor(n);if(n<12)return a[n];if(n<20)return terbilang(n-10)+' Belas';if(n<100)return terbilang(n/10)+' Puluh '+terbilang(n%10);if(n<200)return'Seratus '+terbilang(n-100);if(n<1000)return terbilang(n/100)+' Ratus '+terbilang(n%100);if(n<2000)return'Seribu '+terbilang(n-1000);if(n<1e6)return terbilang(n/1000)+' Ribu '+terbilang(n%1000);if(n<1e9)return terbilang(n/1e6)+' Juta '+terbilang(n%1e6);if(n<1e12)return terbilang(n/1e9)+' Miliar '+terbilang(n%1e9);return terbilang(n/1e12)+' Triliun '+terbilang(n%1e12)}
@@ -21,3 +24,6 @@ bindMediaUpload('stampInput','stamp');bindMediaUpload('signatureInput','signatur
 const editableRender=render;
 render=function(){editableRender();const headline=document.querySelector('.invoice-title h1');if(headline)headline.textContent=state.invoiceTitle||'INVOICE';const parties=document.querySelectorAll('.party');if(parties.length>1){const shippingName=parties[1].querySelector('h3');if(shippingName)shippingName.textContent=state.shippingClient||state.client}};
 document.querySelectorAll('[data-bind="invoiceTitle"],[data-bind="shippingClient"]').forEach(el=>{if(state[el.dataset.bind])el.value=state[el.dataset.bind]});render();
+const contactRender=render;
+render=function(){contactRender();const paymentTitle=document.querySelector('.payment-box h3');if(paymentTitle)paymentTitle.textContent='◉   '+(state.paymentTitle||'INFORMASI PEMBAYARAN');const parties=document.querySelectorAll('.party');if(parties.length>1){const shippingInfo=parties[1].querySelector('p');if(shippingInfo)shippingInfo.innerHTML=`${state.warehouse}<br>${state.shippingAddress}<br><b>Email:</b> ${state.shippingEmail||''}<br><b>Telp:</b> ${state.shippingPhone||''}`}};
+document.querySelectorAll('[data-bind="paymentTitle"],[data-bind="shippingEmail"],[data-bind="shippingPhone"]').forEach(el=>{if(state[el.dataset.bind]!==undefined)el.value=state[el.dataset.bind]});render();
